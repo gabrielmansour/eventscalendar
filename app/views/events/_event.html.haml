@@ -1,0 +1,28 @@
+%div[event]
+  %p.summary
+    %strong Summary
+    = h event.summary
+  %p.dtstart
+    %strong Dtstart
+    = h event.dtstart
+  %p.dtend
+    %strong Dtend
+    = h event.dtend
+  %p.description
+    %strong Description
+    = h event.description
+  %p.url
+    %strong Url
+    = h event.url
+  %p.ticket_url
+    %strong Ticket url
+    = h event.ticket_url
+  %p.creator_id
+    %strong Creator
+    = h event.creator_id
+
+  = link_to 'Show', object_path(event)
+  |
+  = link_to 'Edit', edit_object_path(event)
+  |
+  = link_to 'Destroy', object_path(event), :confirm => 'Really destroy event?', :method => :delete

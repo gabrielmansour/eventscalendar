@@ -1,0 +1,9 @@
+%h1 Creating event
+
+= error_messages_for :event
+
+- form_for(:event, :url => objects_url) do |f|
+  = render :partial => "form", :locals => {:f => f}
+  %p= submit_tag "Create"
+
+= link_to 'Back', objects_path

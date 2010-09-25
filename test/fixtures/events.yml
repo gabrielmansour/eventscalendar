@@ -1,0 +1,18 @@
+one:
+  id: 1
+  summary: MyString
+  dtstart: 2010-09-25 12:23:34
+  dtend: 2010-09-25 12:23:34
+  description: MyText
+  url: MyText
+  ticket_url: MyText
+  creator_id: 1
+two:
+  id: 2
+  summary: MyString
+  dtstart: 2010-09-25 12:23:34
+  dtend: 2010-09-25 12:23:34
+  description: MyText
+  url: MyText
+  ticket_url: MyText
+  creator_id: 1

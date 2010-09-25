@@ -1,0 +1,30 @@
+%h1 Viewing event
+
+%div[current_object]
+  %p.summary
+    %strong Summary
+    = h current_object.summary
+  %p.dtstart
+    %strong Dtstart
+    = h current_object.dtstart
+  %p.dtend
+    %strong Dtend
+    = h current_object.dtend
+  %p.description
+    %strong Description
+    = h current_object.description
+  %p.url
+    %strong Url
+    = h current_object.url
+  %p.ticket_url
+    %strong Ticket url
+    = h current_object.ticket_url
+  %p.creator_id
+    %strong Creator
+    = h current_object.creator_id
+
+= link_to 'Edit', edit_object_path
+|
+= link_to 'Destroy', object_path, :confirm => 'Really destroy event?', :method => :delete
+|
+= link_to 'Back', objects_path
