@@ -1,0 +1,15 @@
+.DS_Store
+*.tmproj
+public/stylesheets/compiled/*
+app/stylesheets/.sass-cache
+
+log/*.log
+tmp/**/*
+tmp/webrat-*
+config/database.yml
+config/email.yml
+db/*.sqlite3
+doc/api
+doc/app
+bin
+.bundle
