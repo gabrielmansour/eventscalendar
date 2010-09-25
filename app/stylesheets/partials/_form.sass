@@ -5,6 +5,7 @@
 form
   +blueprint-form
   +no-bullets
+  :font-size 1.2em
   li
     :margin-bottom 1em
     label
@@ -19,3 +20,27 @@ form
       :margin-left 160px
       :clear both
     
+ul.ui-autocomplete
+  +border-radius(0)
+  :z-index 100000
+  :width 300px
+  +no-bullets
+  :margin 0
+  :padding 0
+  li
+    :white-space pre
+    :margin 0
+    :padding 0
+    +border-radius(0)
+    a
+      :display block
+      :padding 2px 10px
+      :background-color #eee
+      :border 1px solid #eee
+      +border-radius(0)
+      :text-decoration none
+      :font-weight bold
+    .ui-state-hover
+      :font-weight normal
+      
+      

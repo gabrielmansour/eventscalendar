@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :venues
+  map.resources :venues, :collection => { :search => :get }
 
   map.resources :events
 

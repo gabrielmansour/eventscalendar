@@ -1,7 +1,6 @@
 - content_for :head do
   != stylesheet_link_tag "event_calendar"
 
-%h1 Listing events Calendar
 != link_to 'Add an Event', new_object_path, :id => :addevent
 
 != event_calendar

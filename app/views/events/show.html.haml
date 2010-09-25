@@ -19,9 +19,42 @@
   %p.ticket_url
     %strong Ticket url
     = current_object.ticket_url
-  %p.creator_id
-    %strong Creator
-    = current_object.creator_id
+
+- if current_object.twitter_hashtag?
+    <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+    <script>
+    new TWTR.Widget({
+      version: 2,
+      type: 'search',
+      search: '#{javascript_escape(current_object.twitter_hashtag)}',
+      interval: 6000,
+      title: 'Tweets about #{javascript_escape(current_object.twitter_hashtag)}',
+      subject: '',
+      width: 250,
+      height: 300,
+      theme: {
+        shell: {
+          background: '#8ec1da',
+          color: '#ffffff'
+        },
+        tweets: {
+          background: '#ffffff',
+          color: '#444444',
+          links: '#1985b5'
+        }
+      },
+      features: {
+        scrollbar: false,
+        loop: true,
+        live: true,
+        hashtags: true,
+        timestamp: true,
+        avatars: true,
+        toptweets: true,
+        behavior: 'default'
+      }
+    }).render().start();
+    </script>
 
 != link_to 'Edit', edit_object_path
 |

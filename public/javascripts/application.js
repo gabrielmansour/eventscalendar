@@ -3,41 +3,36 @@
 
 jQuery(function($){
   $("input.autocomplete").autocomplete({
-		source: function( request, response ) {
-			$.ajax({
-				url: "http://api.sandbox.yellowapi.com/FindBusiness",
-				dataType: "jsonp",
-				data: {
-					pg: 1,
-					maxRows: 12,
-					where: "Toronto",
-					fmt: "JSON",
-					what: request.term,
-					UID: Math.round(Math.random()*1000),
-					apikey: "kdsu6xxqva28eu9zvpcpqfba"
-				},
-				success: function( data ) {
-					response( $.map(data.listings, function(item){
+		source: function(request, response) {
+			$.getJSON('/venues/search', {q: request.term},
+				function(data) {
+				  response( $.map(data.listings, function(item){
 					  var address = [item.address.street, item.address.city, item.address.prov, item.address.pcode].join(", ")
 						return {
-							label: item.name + " ("+address+")",
+							label: item.name + "\n" + address,
 							value: item.id
 						};
-					}));
-				}
+					}) );
 			});
 		},
 		minLength: 2,
 		select: function( event, ui ) {
-			log( ui.item ?
-				"Selected: " + ui.item.label :
-				"Nothing selected, input was " + this.value);
+			if(ui.item) {
+			  $("#event_venue_id").val(ui.item.value);
+			  $("#event_venue_id").val(0 ? 0 : 1)
+			}
 		},
 		open: function() {
-			$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+			$(this).find("*").andSelf().removeClass('ui-corner-all');
+			$(".ui-autocomplete").css('zIndex', 1000000);
+			$(this).find('li a').html(function(i, val){
+			  var d = val.split("\n", 2);
+			  console.log(d);
+			  return d[0] + '<span class="adr">'+d[1]+'</span>';
+			});
 		},
 		close: function() {
-			$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+			$(this).find('*').andSelf().removeClass("ui-corner-all");
 		}
 	}).keydown(function(event){
 	  if (event.which == $.ui.keyCode.ENTER) {

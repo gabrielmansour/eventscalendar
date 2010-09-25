@@ -78,7 +78,9 @@ $zindex_label : 5
     :-webkit-border-top-left-radius 4px
     .ui-slider-tooltip
       :color = $flag_text_color
-      :font-weight normal
+      :font
+        :weight normal
+        :size 11px
       :margin-top -1px
       :position absolute
       :z-index = $zindex_handle_tooltip
