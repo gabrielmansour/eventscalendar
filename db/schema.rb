@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100925162334) do
+ActiveRecord::Schema.define(:version => 20100925175125) do
 
   create_table "events", :force => true do |t|
     t.string   "summary"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20100925162334) do
     t.text     "url"
     t.text     "ticket_url"
     t.integer  "creator_id"
+    t.string   "twitter_hashtag"
   end
 
   create_table "users", :force => true do |t|
