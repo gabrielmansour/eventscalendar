@@ -12,8 +12,8 @@
     != f.label :description
     != f.text_area :description
   %li
-    != f.label :url
-    != f.text_area :url
+    != f.label :url, "More Info"
+    != f.text_field :url, :placeholder => "http://"
   %li
     != f.label :ticket_url, "Ticket URL"
-    != f.text_area :ticket_url
+    != f.text_field :ticket_url, :placeholder => "http://"

@@ -10,15 +10,16 @@ module CalendarHelper
       :month => @month,
       :event_strips => @event_strips,
       :month_name_text => I18n.localize(@shown_month, :format => "%B %Y"),
-      :previous_month_text => "<< " + month_link(@shown_month.last_month),
-      :next_month_text => month_link(@shown_month.next_month) + " >>"    }
+      :previous_month_text => "&larr; Previous Month",
+      :next_month_text => "Next Month &rarr;"
+    }
   end
-
+  
   def event_calendar
     # args is an argument hash containing :event, :day, and :options
     calendar event_calendar_opts do |args|
       event = args[:event]
-      %(<a href="/events/#{event.id}" title="#{h(event.name)}">#{h(event.name)}</a>)
+      link_to event, event, :title=> event.tooltip
     end
   end
 end

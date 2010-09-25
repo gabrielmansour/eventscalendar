@@ -9,7 +9,7 @@
     != stylesheet_link_tag 'compiled/print', :media => 'print'
     %link{:rel => :profile, :href=> "http://microformats.org/profile/hcalendar"}
     != yield :head
-    != javascript_include_tag "application"
+    != javascript_include_tag "jquery", "event_calendar", "application"
   %body{:class=>body_classes}
     
     #container
