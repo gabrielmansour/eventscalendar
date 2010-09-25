@@ -1,0 +1,45 @@
+%h1 Viewing venue
+
+%div[current_object]
+  %p.name
+    %strong Name
+    = h current_object.name
+  %p.address
+    %strong Address
+    = h current_object.address
+  %p.city
+    %strong City
+    = h current_object.city
+  %p.province
+    %strong Province
+    = h current_object.province
+  %p.postal_code
+    %strong Postal code
+    = h current_object.postal_code
+  %p.country
+    %strong Country
+    = h current_object.country
+  %p.phone_number
+    %strong Phone number
+    = h current_object.phone_number
+  %p.url
+    %strong Url
+    = h current_object.url
+  %p.description
+    %strong Description
+    = h current_object.description
+  %p.time_zone
+    %strong Time zone
+    = h current_object.time_zone
+  %p.latitude
+    %strong Latitude
+    = h current_object.latitude
+  %p.longitude
+    %strong Longitude
+    = h current_object.longitude
+
+= link_to 'Edit', edit_object_path
+|
+= link_to 'Destroy', object_path, :confirm => 'Really destroy venue?', :method => :delete
+|
+= link_to 'Back', objects_path

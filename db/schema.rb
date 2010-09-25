@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100925175125) do
+ActiveRecord::Schema.define(:version => 20100925181316) do
 
   create_table "events", :force => true do |t|
     t.string   "summary"
@@ -20,11 +20,28 @@ ActiveRecord::Schema.define(:version => 20100925175125) do
     t.text     "ticket_url"
     t.integer  "creator_id"
     t.string   "twitter_hashtag"
+    t.integer  "venue_id"
   end
 
   create_table "users", :force => true do |t|
     t.string "name"
     t.string "email"
+  end
+
+  create_table "venues", :force => true do |t|
+    t.string  "name"
+    t.string  "address"
+    t.string  "city"
+    t.string  "province"
+    t.string  "postal_code"
+    t.string  "country"
+    t.string  "phone_number"
+    t.string  "url"
+    t.text    "description"
+    t.string  "time_zone"
+    t.integer "latitude",     :limit => 10, :precision => 10, :scale => 0
+    t.integer "longitude",    :limit => 10, :precision => 10, :scale => 0
+    t.integer "user_id"
   end
 
 end

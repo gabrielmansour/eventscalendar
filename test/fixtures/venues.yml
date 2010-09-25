@@ -1,0 +1,28 @@
+one:
+  id: 1
+  name: MyString
+  address: MyString
+  city: MyString
+  province: MyString
+  postal_code: MyString
+  country: MyString
+  phone_number: MyString
+  url: MyString
+  description: MyText
+  time_zone: MyString
+  latitude: 9.99
+  longitude: 9.99
+two:
+  id: 2
+  name: MyString
+  address: MyString
+  city: MyString
+  province: MyString
+  postal_code: MyString
+  country: MyString
+  phone_number: MyString
+  url: MyString
+  description: MyText
+  time_zone: MyString
+  latitude: 9.99
+  longitude: 9.99
