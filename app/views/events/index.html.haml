@@ -1,5 +1,8 @@
-%h1 Listing events
+- content_for :head do
+  != stylesheet_link_tag "event_calendar"
 
-= render :partial => 'event', :collection => current_objects
+%h1 Listing events Calendar
+!= link_to 'Add an Event', new_object_path 
 
-= link_to 'New event', new_object_path 
+!= event_calendar
+

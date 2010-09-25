@@ -1,21 +1,19 @@
-%p
-  %label{:for => "event_summary"} Event Name:
-  != f.text_field :summary
-%p
-  %label{:for => "event_dtstart"} Dtstart:
-  != f.datetime_select :dtstart
-%p
-  %label{:for => "event_dtend"} Dtend:
-  != f.datetime_select :dtend
-%p
-  %label{:for => "event_description"} Description:
-  != f.text_area :description
-%p
-  %label{:for => "event_url"} Url:
-  != f.text_area :url
-%p
-  %label{:for => "event_ticket_url"} Ticket url:
-  != f.text_area :ticket_url
-%p
-  %label{:for => "event_creator_id"} Creator:
-  != f.text_field :creator_id
+%ol
+  %li
+    != f.label "Event Name"
+    != f.text_field :summary
+  %li
+    != f.label :dtstart, "Start Date"
+    != f.datetime_select :dtstart
+  %li
+    != f.label :dtend, "End Date"
+    != f.datetime_select :dtend
+  %li
+    != f.label :description
+    != f.text_area :description
+  %li
+    != f.label :url
+    != f.text_area :url
+  %li
+    != f.label :ticket_url, "Ticket URL"
+    != f.text_area :ticket_url

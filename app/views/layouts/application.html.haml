@@ -7,16 +7,14 @@
     %title= title
     != stylesheet_link_tag 'compiled/style', :media => 'all'
     != stylesheet_link_tag 'compiled/print', :media => 'print'
-
     %link{:rel => :profile, :href=> "http://microformats.org/profile/hcalendar"}
+    != yield :head
     != javascript_include_tag "application"
-    
-  != content_for :head
   %body{:class=>body_classes}
     
     #container
       #header
-        %h1#title!= link_to "TO Events Calendar", '#'#root_path
+        %h1#title!= link_to "TO Events Calendar", root_path
         %ul#navigation
       #content
         != yield
