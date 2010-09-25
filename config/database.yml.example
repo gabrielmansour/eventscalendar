@@ -1,0 +1,18 @@
+base: &base
+  adapter: mysql
+  encoding: utf8
+  hostname: localhost
+  login: root
+  password:
+development:
+  database: eventcalendar_development
+  <<: *base
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  database: eventcalendar_test
+  <<: *base
+production:
+  database: eventcalendar_production
+  <<: *base

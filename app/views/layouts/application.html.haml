@@ -1,0 +1,23 @@
+!!! strict
+%html{html_attrs('en-CA')}
+  %head
+    %meta{:"http-equiv" => "Content-Type", :content => "text/html;charset=UTF-8" }
+    %meta{:"http-equiv" => "X-UA-Compatible", :content => "chrome=1" }
+
+    %title= title
+    != stylesheet_link_tag 'compiled/style', :media => 'all'
+    != stylesheet_link_tag 'compiled/print', :media => 'print'
+
+    %link{:rel => :profile, :href=> "http://microformats.org/profile/hcalendar"}
+    != javascript_include_tag "application"
+    
+  != content_for :head
+  %body{:class=>body_classes}
+    
+    #container
+      #header
+        %h1#title!= link_to "TO Events Calendar", '#'#root_path
+        %ul#navigation
+      #content
+        != yield
+      #sidebar= content_for :sidebar
