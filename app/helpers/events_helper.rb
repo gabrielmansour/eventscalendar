@@ -1,2 +1,127 @@
 module EventsHelper
+  def options_for_timeslider_select(type = :dtstart)
+    %{
+      <option value="00:00">12:00a</option>
+      <option value="00:15">12:15a</option>
+      <option value="00:30">12:30a</option>
+      <option value="00:45">12:45a</option>
+      <option value="01:00">1:00a</option>
+      <option value="01:15">1:15a</option>
+      <option value="01:30">1:30a</option>
+      <option value="01:45">1:45a</option>
+      <option value="02:00">2:00a</option>
+      <option value="02:15">2:15a</option>
+      <option value="02:30">2:30a</option>
+      <option value="02:45">2:45a</option>
+      <option value="03:00">3:00a</option>
+      <option value="03:15">3:15a</option>
+      <option value="03:30">3:30a</option>
+      <option value="03:45">3:45a</option>
+      <option value="04:00">4:00a</option>
+      <option value="04:15">4:15a</option>
+      <option value="04:30">4:30a</option>
+      <option value="04:45">4:45a</option>
+      <option value="05:00">5:00a</option>
+      <option value="05:15">5:15a</option>
+      <option value="05:30">5:30a</option>
+      <option value="05:45">5:45a</option>
+      <option value="06:00" title="6a">6:00a</option>
+      <option value="06:15">6:15a</option>
+      <option value="06:30">6:30a</option>
+      <option value="06:45">6:45a</option>
+      <option value="07:00">7:00a</option>
+      <option value="07:15">7:15a</option>
+      <option value="07:30">7:30a</option>
+      <option value="07:45">7:45a</option>
+      <option value="08:00">8:00a</option>
+      <option value="08:15">8:15a</option>
+      <option value="08:30">8:30a</option>
+      <option value="08:45">8:45a</option>
+      <option value="09:00">9:00a</option>
+      <option value="09:15">9:15a</option>
+      <option value="09:30">9:30a</option>
+      <option value="09:45">9:45a</option>
+      <option value="10:00">10:00a</option>
+      <option value="10:15">10:15a</option>
+      <option value="10:30">10:30a</option>
+      <option value="10:45">10:45a</option>
+      <option value="11:00">11:00a</option>
+      <option value="11:15">11:15a</option>
+      <option value="11:30">11:30a</option>
+      <option value="11:45">11:45a</option>
+      <option value="12:00" title="Noon">12:00p</option>
+      <option value="12:15">12:15p</option>
+      <option value="12:30">12:30p</option>
+      <option value="12:45">12:45p</option>
+      <option value="13:00">1:00p</option>
+      <option value="13:15">1:15p</option>
+      <option value="13:30">1:30p</option>
+      <option value="13:45">1:45p</option>
+      <option value="14:00">2:00p</option>
+      <option value="14:15">2:15p</option>
+      <option value="14:30">2:30p</option>
+      <option value="14:45">2:45p</option>
+      <option value="15:00">3:00p</option>
+      <option value="15:15">3:15p</option>
+      <option value="15:30">3:30p</option>
+      <option value="15:45">3:45p</option>
+      <option value="16:00">4:00p</option>
+      <option value="16:15">4:15p</option>
+      <option value="16:30">4:30p</option>
+      <option value="16:45">4:45p</option>
+      <option value="17:00">5:00p</option>
+      <option value="17:15">5:15p</option>
+      <option value="17:30">5:30p</option>
+      <option value="17:45">5:45p</option>
+      <option value="18:00" title="6p"#{' selected="selected"' if type == :dtstart}>6:00p</option>
+      <option value="18:15">6:15p</option>
+      <option value="18:30">6:30p</option>
+      <option value="18:45">6:45p</option>
+      <option value="19:00">7:00p</option>
+      <option value="19:15">7:15p</option>
+      <option value="19:30">7:30p</option>
+      <option value="19:45">7:45p</option>
+      <option value="20:00">8:00p</option>
+      <option value="20:15">8:15p</option>
+      <option value="20:30">8:30p</option>
+      <option value="20:45">8:45p</option>
+      <option value="21:00"#{' selected="selected"' if type == :dtend}>9:00p</option>
+      <option value="21:15">9:15p</option>
+      <option value="21:30">9:30p</option>
+      <option value="21:45">9:45p</option>
+      <option value="22:00">10:00p</option>
+      <option value="22:15">10:15p</option>
+      <option value="22:30">10:30p</option>
+      <option value="22:45">10:45p</option>
+      <option value="23:00">11:00p</option>
+      <option value="23:15">11:15p</option>
+      <option value="23:30">11:30p</option>
+      <option value="23:45">11:45p</option>
+      <option value="24:00" title="Midnight">12:00a</option>
+      <option value="24:15">12:15a</option>
+      <option value="24:30">12:30a</option>
+      <option value="24:45">12:45a</option>
+      <option value="25:00">1:00a</option>
+      <option value="25:15">1:15a</option>
+      <option value="25:30">1:30a</option>
+      <option value="25:45">1:45a</option>
+      <option value="26:00">2:00a</option>
+      <option value="26:15">2:15a</option>
+      <option value="26:30">2:30a</option>
+      <option value="26:45">2:45a</option>
+      <option value="27:00">3:00a</option>
+      <option value="27:15">3:15a</option>
+      <option value="27:30">3:30a</option>
+      <option value="27:45">3:45a</option>
+      <option value="28:00">4:00a</option>
+      <option value="28:15">4:15a</option>
+      <option value="28:30">4:30a</option>
+      <option value="28:45">4:45a</option>
+      <option value="29:00">5:00a</option>
+      <option value="29:15">5:15a</option>
+      <option value="29:30">5:30a</option>
+      <option value="29:45">5:45a</option>
+      <option value="30:00" title="6a">6:00a</option>
+    }
+  end
 end

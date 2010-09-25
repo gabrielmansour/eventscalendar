@@ -1,0 +1,209 @@
+// Time Slider for Say Yeah!'s Toronto Events Calendar
+// Created by Gabriel Mansour for Say Yeah!
+$tic_margin : 3px
+$tic_color : #000
+$height : 25px
+$flag_color : #fffccc
+$flag_border : #eccf33
+$flag_border_active : $flag_border / 2
+$flag_text_color : #8f8136 - #222
+$flag_width : 49px
+$flag_text_padding : 6px
+
+$zindex_handle : 20
+$zindex_handle_tooltip : $zindex_handle + 1
+$zindex_tic : 15
+$zindex_range : 10
+$zindex_label : 5
+
+=time-slider
+  // remove UI theme's default background dependencies
+  .ui-widget-header,
+  .ui-widget-content,
+  .ui-state-default, .ui-widget-content .ui-state-default,
+  .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus,
+  .ui-state-active, .ui-widget-content .ui-state-active
+    :background none
+
+  // don't select text when highlighting
+  :user-select none
+  :-webkit-user-select none
+  :-moz-user-select none
+  :width 361px
+  :height 25px
+  :background
+    :color transparent
+    :image= image_url("timeslider/timeslider_bg.gif")
+    :repeat no-repeat
+    :position 0 0
+  ol
+    li
+      .ui-slider-label
+        :line-height 1
+        :vertical-align bottom
+        :margin
+          :top = -1 * floor($height - 9px / 2)
+          //:margin-top -20px
+          //:left 3px
+        :padding
+          :top = $height + 15px
+          :left 2px
+        :font-size 9px
+        :color = #a7a7a7
+        :z-index = $zindex_label
+
+        :border-left 1px dotted
+        :vertical-align bottom
+        :text-align left
+
+      .ui-slider-tic
+        :z-index = $zindex_tic
+        :height = $height - 2 * $tic_margin
+        :border-color = $tic_color
+        +opacity(0.15)
+        :margin
+          :top = $tic_margin
+          :bottom = $tic_margin
+  .ui-slider-handle
+    :height = $height + 3px + 24px
+    :width 1px
+    :margin
+      :left -1px
+      :top = -1 * 24px
+    :background = $flag_color
+    :border = 1px "solid" $flag_border
+    :display block
+    :z-index = $zindex_handle
+    :-moz-border-radius-topleft 4px
+    :-webkit-border-top-left-radius 4px
+    .ui-slider-tooltip
+      :color = $flag_text_color
+      :font-weight normal
+      :margin-top -1px
+      :position absolute
+      :z-index = $zindex_handle_tooltip
+      .ttContent
+        :background-color = $flag_color
+        :border 
+          :width 1px
+          :style solid
+          :color = $flag_border
+        :border-left-color = $flag_color
+        :display block
+        :text-align center
+        :line-height 1
+        :padding = $flag_text_padding 0
+        :width = $flag_width
+        :-moz-border-radius 0 4px 4px 0
+        :-webkit-border
+          :radius 4px
+          :top-left-radius 0
+          :bottom-left-radius 0
+      .ui-tooltip-pointer-down
+        :display none !important
+
+    // highlight selected flag
+    &.ui-state-focus
+      &, & .ttContent
+        :border-color = $flag_border_active
+      // don't change color of inner margin where flag banner meets the stem:
+      .ttContent
+        :border-left-color = $flag_color
+      // fix border highlighting for left flag
+      &.ui-slider-handle-left .ttContent
+        :border-left-color = $flag_border_active "!important"
+      
+    // show arrows on hover
+    &.ui-state-hover
+      .ui-slider-tooltip
+        :position absolute
+        :padding
+          :left 9px
+          :right 6px
+        :margin
+          :left -9px
+          :right -9px
+        :background
+          :color transparent
+          :image = image_url("timeslider/timeslider_flag_arrows.gif")
+          :position 50% 50%
+          :repeat no-repeat
+        :min-width 55px
+        :height 21px
+    // reverse rounded corners for left flag
+    &.ui-slider-handle-left
+      :-moz-border-radius
+        :topleft 0
+        :topright 4px
+      :-webkit-border-top
+        :left-radius 0
+        :right-radius 4px
+      .ui-slider-tooltip
+        // 1px below refers to stem width less 1px so that borders overlap
+        :left = -1 * $flag_width - 1px
+        .ttContent
+          :-moz-border-radius 4px 0 0 4px
+          :-webkit-border
+            :radius 4px
+            :top-right-radius 0
+            :bottom-right-radius 0
+          :border
+            :left-color = $flag_border
+            :right-color = $flag_color
+      &.ui-state-hover
+        .ui-slider-tooltip
+          :margin-left -7px
+          :padding-left 7px
+  .ui-slider-range
+    :background
+      :color #1a8dff
+      :image= image_url("timeslider/timeslider_range_gradient.png")
+      :repeat repeat-x
+      :position 0 0
+    :border 1px solid #0066cc
+    :height = $height - 1px * 2
+    :z-index = $zindex_range
+    &.ui-state-focus, &.ui-state-active
+      :outline
+        :width 1px
+        :style dotted
+        :offset 0px
+        :color = $flag_border_active
+
+    
+=opacity($value)
+  :-moz-opacity = $value
+  :filter = "alpha(opacity=" round($value*100) ")"
+  :opacity = $value
+
+
+// Use this mixin to add slider UI slider styles using the default selector
+=add-slider-widget
+  .ui-slider.ui-slider-horizontal
+    +time-slider
+
+
+@import ../redmond/jquery-ui-1.7.1.custom.css
+@import ../ui.slider.extras.css
+// basic page styling. doesn't really affect the slider.
+body
+  :font-size 62.5%
+  :font-family "Trebuchet MS","Helvetica Neue",Helvetica,Arial,sans-serif
+fieldset
+  :border 0
+  :margin 6em
+  :height 12em
+label
+  :font-weight normal
+  :margin-right .5em
+  :font-size 1.1em
+select
+  :margin-right 1em
+// This is where the importart stuff comes in:
+.ui-slider.ui-slider-horizontal
+  +time-slider
+  :display inline-block
+  :margin
+    :top 5px
+    :bottom 15px
+    :left 15px 

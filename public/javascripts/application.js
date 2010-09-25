@@ -43,5 +43,35 @@ jQuery(function($){
 	  if (event.which == $.ui.keyCode.ENTER) {
 	    return false;
 	  }
-	})
+	});
+	
+	// Time Slider
+	if ($("body.events").is(".new,.edit")){
+	  // Example Usage:
+    window.a = $('select#event_dtstart_time, select#event_dtend_time').timeSlider().bind('slidechange', slideEvent);
+    function slideEvent(event, ui){
+      var values = $(a[0].self).map(function(i){ return $(this).val(); }),
+          valueFields = $(a[0].self).map(function(i){ return document.getElementById(this.id.replace('_time','')); }),
+          dateField = $('#event_dtstart_date').val();
+      valueFields.each(function(i){
+        var date = $.datepicker.parseDate($.datepicker.ATOM, dateField );
+        if (date) { // make sure the value in the date field is valid
+          var value = values[i],
+              timeParts = value.split(':'),
+              hours = parseInt(timeParts[0], 10),
+              minutes = parseInt(timeParts[1], 10);
+          var pad = function(n){ return (n<10) ? '0'+n : n; }; // adds leading zeros
+          var time = new Date( date.getFullYear(), date.getMonth(), date.getDate(), hours, minutes );
+          var timestamp = ' ' + [pad(hours % 24), pad(minutes), '00'].join(":");
+          $(this).val( $.datepicker.formatDate($.datepicker.ISO_8601, time ) + timestamp );
+        } else {
+          console.log("Invalid Date");
+        }
+      });
+    }
+
+    slideEvent(); // populate initial values
+    
+    $('input.datepicker').datepicker({minDate: new Date(), dateFormat: $.datepicker.ATOM });
+	}
 });

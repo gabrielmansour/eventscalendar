@@ -9,11 +9,16 @@
     %p.description Type in the first few letters of your venue
     != link_to "Not Listed? Add your venue.", new_venue_path
   %li
-    != f.label :dtstart, "Start Date"
-    != f.datetime_select :dtstart
-  %li
-    != f.label :dtend, "End Date"
-    != f.datetime_select :dtend
+    != f.label :dtstart_date, "Start Date"
+    != f.text_field :dtstart_date, :class => :datepicker, :value => Date.today
+    != f.hidden_field :dtstart
+    
+    != f.select :dtstart_time, options_for_timeslider_select(:dtstart)
+    != f.select :dtend_time, options_for_timeslider_select(:dtend)
+  %li.hidden
+    != f.label :dtend_date, "End Date"
+    != f.text_field :dtend_date, :class => :datepicker, :value => Date.today
+    != f.hidden_field :dtend
   %li
     != f.label :description
     != f.text_area :description

@@ -2,5 +2,20 @@
 // a class of "bp". This makes it easier to style
 // forms from scratch if you need to.
 
-form.bp
+form
   +blueprint-form
+  +no-bullets
+  li
+    :margin-bottom 1em
+    label
+      +column(4)
+      :margin-top 6px
+      :vertical-align middle
+    input[type=text]
+      :vertical-align top
+      &.datepicker
+        :width 90px
+    p.description
+      :margin-left 160px
+      :clear both
+    

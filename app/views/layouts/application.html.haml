@@ -6,10 +6,11 @@
 
     %title= title
     != stylesheet_link_tag 'compiled/style', :media => 'all'
+    != stylesheet_link_tag 'compiled/timeslider', :media => 'all'
     != stylesheet_link_tag 'compiled/print', :media => 'print'
     %link{:rel => :profile, :href=> "http://microformats.org/profile/hcalendar"}
     != yield :head
-    != javascript_include_tag "jquery", "event_calendar", "jquery-ui-1.8.5.custom.min", "application"
+    != javascript_include_tag "jquery", "event_calendar", "jquery-ui-1.8.5.custom.min", "selectToUISlider.jQuery", "jquery.timeSlider", "application"
   %body{:class=>body_classes}
     
     #container

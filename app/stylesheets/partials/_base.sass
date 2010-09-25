@@ -8,3 +8,30 @@ $blueprint-grid-margin: 10px
 // Use this to calculate the width based on the total width.
 // Or you can set !blueprint_grid_width to a fixed value and unset !blueprint_container_size -- it will be calculated for you.
 $blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin
+
+// accessible hiding/showing of elements
+=hide($force_absolute=false)
+  @if $force_absolute
+    $force_absolute = "!important"
+  @else
+    $force_absolute = ""
+  :position = "absolute" $force_absolute
+  :left -9999em
+  :top auto
+  :width 1px
+  :height 1px
+  :overflow hidden
+=show
+  :position static
+  :left auto
+  :width auto
+  :height auto
+  :overflow visible
+
+=accessible-hiding-classes
+  .hidden
+    +hide
+  .shown
+    +show
+    
++accessible-hiding-classes
